@@ -34,6 +34,9 @@
       function createList(time, studentName){
       	// Clear any existing content first
       	document.getElementById("student_list").innerHTML = "";
+      	var title = document.createElement("H1");
+      	title.innerHTML = time + " Students";
+      	document.getElementById("student_list").appendChild(title);
 
       	//Create list of students
 /*      	var but = document.createElement("BUTTON");
@@ -78,8 +81,17 @@
   	  <button class="btn btn-primary" id="class" name="time" type="button" onclick="displayStudents('PM')" value="PM">PM Class</button>
     </div>
   </form>
-  <div id="student_list" class="list-group"></div>
+  <div class="row">
+    <div class="col-2">
+      <div id="student_list" class="list-group"></div>
+    </div>
+    <div class="col-5">
+    <!-- Individual student data here -->
+    </div>
+    <div class="col-5">
+      <!-- Class data here -->
+    </div>    
+  </div>
 </div>
-
 </body>
 </html>
