@@ -14,7 +14,7 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res) => res.render('pages/index'));
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
-app.get("/students", function(req,res){
+app.get('/students', function(req,res){
     let classTime = req.query.time;
     console.log(classTime);
     var sql = "SELECT student_name FROM students";//WHERE class_time = " + classTime;
