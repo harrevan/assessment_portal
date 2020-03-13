@@ -1,0 +1,18 @@
+{
+  "name": "assessment-portal",
+  "version": "1.0.0",
+  "description": "Assessment portal application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+   "repository": {
+    "type": "git",
+    "url": "https://git.heroku.com/whispering-tundra-91917.git"
+  }, 
+  "author": "Evan Harrison",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

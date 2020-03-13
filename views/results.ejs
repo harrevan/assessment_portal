@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Results</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+	<h2>Rates</h2>
+	<%
+		if(!Array.isArray(rate)){
+			var rounded = rate.toFixed(2);
+	%>		
+			<p>The rate for <b><%= mail %></b> at a weight of <b><%= weight %> ounce(s)</b> is <b>$<%= rounded %></b>.</p>
+	<%		
+		}
+		else{
+	%>
+			<p>The rate for <b><%= mail %></b> at a weight of <b><%= weight %> ounce(s)</b> by zone is:<br></p>
+			<ul>
+	<%
+			for(var i = 1; i < rate.length; i++){
+			console.log(rate.length)
+			console.log(i);
+			var rounded = rate[i].toFixed(2);
+	%>		
+				<li>Zone - <%= i %> = $<%= rounded %> </li>
+	<%
+		    }
+	}
+	%>
+  </ul>
+</div>
+
+</body>
+</html>
