@@ -52,7 +52,7 @@
       	for(var i  = 0; i < studentName.length; i++){
       		var but = document.createElement("BUTTON");
       		but.setAttribute("id", "student" + i);
-      		but.className = "col-2 list-group-item list-group-item-action";
+      		but.className = "list-group-item list-group-item-action";
       		but.innerHTML = studentName[i].upper;
       		document.getElementById("student_list").appendChild(but);
       	}
@@ -66,7 +66,7 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container-fluid">
   <div class="jumbotron">
     <h1>Kindergarten Assessment Portal</h1>
   </div>
@@ -80,14 +80,14 @@
     </div>
   </form>
   <div class="row">
-    <div class="col-2 list-group">
-      <div id="student_list" class="list-group"></div>
+    <div class="col list-group">
+      <div id="student_list"></div>
     </div>
-    <div class="col-5">
+    <div class="col">
     <!-- Individual student data here -->
       <h1> Individual Student Data</h1>
     </div>
-    <div class="col-5">
+    <div class="col">
       <!-- Class data here -->
       <h1>Class Data</h1>
     </div>    
