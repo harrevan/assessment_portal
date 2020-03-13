@@ -15,7 +15,8 @@
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
             var studentName = JSON.parse(this.responseText);
-            console.log(studentName);
+            console.log(studentName[0]);
+            console.log(studentName[0]["student_name"]);
             }
         };
         xhttp.open("GET", "/students?time=" + classTime, true);
