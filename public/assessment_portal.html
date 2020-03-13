@@ -36,15 +36,25 @@
       	document.getElementById("student_list").innerHTML = "";
 
       	//Create list of students
-      	var ul = document.createElement("UL");
-      	ul.setAttribute("id", "students");
+/*      	var but = document.createElement("BUTTON");
+      	but.setAttribute("id", "students");
+      	but.className = "list-group-item list-group-item-action";
       	document.getElementById("student_list").appendChild(ul);
       	for(var i  = 0; i < studentName.length; i++){
       		var li = document.createElement("LI");
       		li.innerHTML = studentName[i].upper;
       		console.log(studentName[i].upper);
       		document.getElementById("students").appendChild(li);
+      	}*/
+      	for(var i  = 0; i < studentName.length; i++){
+      		var but = document.createElement("BUTTON");
+      		but.setAttribute("id", "student" + i);
+      		but.className = "list-group-item list-group-item-action";
+      		but.innerHTML = studentName[i].upper;
+      		document.getElementById("student_list").appendChild(but);
       	}
+
+
       }
   </script>
 
@@ -68,11 +78,8 @@
   	  <button class="btn btn-primary" id="class" name="time" type="button" onclick="displayStudents('PM')" value="PM">PM Class</button>
     </div>
   </form>
+  <div id="student_list" class="list-group"></div>
 </div>
-<div class="container" id="student_list">
-
-</div>
-
 
 </body>
 </html>
