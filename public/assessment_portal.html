@@ -16,6 +16,8 @@
             if (this.readyState == 4 && this.status == 200) {
             var studentName = JSON.parse(this.responseText);
             console.log(this.responseText);
+
+            console.log(studentName[0].upper);
             }
         };
         xhttp.open("GET", "/students?time=" + classTime, true);
