@@ -17,25 +17,23 @@ app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
 app.get('/students', function(req,res){
     let classTime = req.query.time;
     console.log(classTime);
-    //console.log(typeof classtime);
-    const sql = "SELECT student_name, class_time FROM students WHERE class_time = '" + classTime + "'";
-    const values = [classTime];
-
+    var resRows;
+    // Select students according to class time
+    const sql = "SELECT upper(student_name) FROM students WHERE class_time = '" + classTime + "'";
     pool.query(sql, function(err, result) {
         // If an error occurred...
         if (err) {
             console.log("Error in query: ")
             console.log(err);
         }
-
-        var resRows;
         resRows = result.rows;
         // Log this to the console for debugging purposes.
         console.log("Back from DB with result:");
         console.log(result.rows);
+
+        // Return JSON result
         res.json(resRows);
     });
-
 
 });
 
