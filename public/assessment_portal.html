@@ -34,12 +34,13 @@
       function createList(time, studentName){
       	var ul = document.createElement("UL");
       	ul.setAttribute("id", "students");
+      	document.body.appendChild(x);
       	for(var i  = 0; i < studentName.length; i++){
       		var li = document.createElement("LI");
       		li.innerHTML = studentName[i].upper;
       		console.log(studentName[i].upper);
+      		document.getElementById("students").appendChild(li);
       	}
-      	document.getElementById("student_list").appendChild(ul);
       }
   </script>
 
