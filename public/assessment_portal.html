@@ -10,6 +10,7 @@
   <script>
   	  function displayStudents() {
   	  	var classTime = document.getElementById('class').value;
+  	  	console.log(classTime);
   	  	var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
