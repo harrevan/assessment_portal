@@ -7,6 +7,26 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script>
+  	  function displayStudents() {
+  	  	var classTime = document.getElementById('class').value;
+  	  	var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+ 
+            }
+        };
+        xhttp.open("GET", "/students?time" + classTime, true);
+        xhttp.send();
+
+      }
+
+  </script>
+
+
+
+
+
 </head>
 <body>
 
@@ -17,9 +37,10 @@
 </div>
 
 <div class="container">
-  <form action="">	
+  <form>	
     <div class="form-group">
-  	  <button type="submit" class = "btn btn-primary">AM Class</button>
+  	  <button class="btn btn-primary" id="class" name="time" type="submit" value="AM">AM Class</button>
+  	  <button class="btn btn-primary" id="class" name="time" type="submit" value="PM">PM Class</button>
     </div>
   </form>
 </div>

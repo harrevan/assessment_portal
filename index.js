@@ -14,8 +14,9 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res) => res.render('pages/index'));
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
-app.get("/assessment_portal", function(req,res){
-    var sql = "SELECT * FROM students";
+app.get("/students", function(req,res){
+    let classTime = req.query.time;
+    var sql = "SELECT * FROM students WHERE class_time = " + classTime;
 
     pool.query(sql, function(err, result) {
         // If an error occurred...
