@@ -32,9 +32,12 @@
       }
 
       function createList(time, studentName){
+      	// Clear any existing content first
+      	document.getElementById("student_list").innerHTML = "";
+
+      	//Create list of students
       	var ul = document.createElement("UL");
       	ul.setAttribute("id", "students");
-      	//document.body.appendChild(ul);
       	document.getElementById("student_list").appendChild(ul);
       	for(var i  = 0; i < studentName.length; i++){
       		var li = document.createElement("LI");
