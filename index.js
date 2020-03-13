@@ -18,7 +18,7 @@ app.get('/students', function(req,res){
     let classTime = req.query.time;
     console.log(classTime);
     //console.log(typeof classtime);
-    const sql = "SELECT student_name, class_time FROM students WHERE class_time = $1";
+    const sql = "SELECT student_name, class_time FROM students WHERE class_time = 'classTime'";
     const values = [classTime];
 
     pool.query(sql, function(err, result) {
