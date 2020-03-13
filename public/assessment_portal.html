@@ -16,8 +16,14 @@
             if (this.readyState == 4 && this.status == 200) {
             var studentName = JSON.parse(this.responseText);
             console.log(this.responseText);
-
             console.log(studentName[0].upper);
+
+            createList(classTime, studentName);
+
+            //
+
+
+
             }
         };
         xhttp.open("GET", "/students?time=" + classTime, true);
@@ -25,6 +31,15 @@
 
       }
 
+      function createList(time, studentName){
+      	var ul = document.createElement("UL");
+      	ul.setAttribute("id", "students");
+      	for(var i  = 0; i < studentName.length; i++){
+      		var li = document.createElement("LI");
+      		li.innerHTML = studentName[i].upper;
+      	}
+      	document.getElementById("student_list").appendChild(ul);
+      }
   </script>
 
 
