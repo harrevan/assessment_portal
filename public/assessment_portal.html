@@ -52,7 +52,7 @@
       	for(var i  = 0; i < studentName.length; i++){
       		var but = document.createElement("BUTTON");
       		but.setAttribute("id", "student" + i);
-      		but.className = "list-group-item list-group-item-action";
+      		but.className = "col-2 list-group-item list-group-item-action";
       		but.innerHTML = studentName[i].upper;
       		document.getElementById("student_list").appendChild(but);
       	}
@@ -80,7 +80,7 @@
     </div>
   </form>
   <div class="row">
-    <div class="col-2">
+    <div class="col-2 list-group" id="student_list">
       <div id="student_list" class="list-group"></div>
     </div>
     <div class="col-5">
