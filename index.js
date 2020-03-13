@@ -6,19 +6,7 @@ const connectionString = process.env.DATABASE_URL || "postgres://tjbpuwysthhmlc:
 const { Pool } = require('pg');
 const pool = new Pool({ connectionString: connectionString });
 
-var sql = "SELECT * FROM students";
 
-pool.query(sql, function(err, result) {
-    // If an error occurred...
-    if (err) {
-        console.log("Error in query: ")
-        console.log(err);
-    }
-
-    // Log this to the console for debugging purposes.
-    console.log("Back from DB with result:");
-    console.log(result.rows);
-});
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
@@ -27,9 +15,23 @@ app.get('/', (req, res) => res.render('pages/index'));
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 app.get("/assessment_portal", function(req,res){
-    let studentName = req.query.student_name;
-    console.log(process.env.DATABASE_URL);
-    var resRows;
+    var sql = "SELECT * FROM students";
+
+    pool.query(sql, function(err, result) {
+        // If an error occurred...
+        if (err) {
+            console.log("Error in query: ")
+            console.log(err);
+        }
+
+        var resRows;
+        resRows = result.rows;
+        // Log this to the console for debugging purposes.
+        console.log("Back from DB with result:");
+        console.log(result.rows);
+        res.json(resRows);
+    });
+
 
 });
 
