@@ -6,15 +6,31 @@ const connectionString = process.env.DATABASE_URL || "postgres://tjbpuwysthhmlc:
 const { Pool } = require('pg');
 const pool = new Pool({ connectionString: connectionString });
 
-app.use(express.static("public"));
-app.set("views","views");
-app.set("view engine", "ejs");
+var sql = "SELECT * FROM students";
+
+pool.query(sql, function(err, result) {
+    // If an error occurred...
+    if (err) {
+        console.log("Error in query: ")
+        console.log(err);
+    }
+
+    // Log this to the console for debugging purposes.
+    console.log("Back from DB with result:");
+    console.log(result.rows);
+});
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+app.get('/', (req, res) => res.render('pages/index'));
+app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 app.get("/assessment_portal", function(req,res){
+    let studentName = req.query.student_name;
     console.log(process.env.DATABASE_URL);
+    var resRows;
+
 });
 
-app.listen(PORT, function(){
-	console.log('Listening on port 5000');
-});
 
