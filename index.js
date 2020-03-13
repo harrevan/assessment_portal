@@ -29,7 +29,7 @@ app.get('/students', function(req,res){
         resRows = result.rows;
         // Log this to the console for debugging purposes.
         console.log("Back from DB with result:");
-        console.log(result.rows);
+        console.log(resRows);
 
         // Return JSON result
         res.json(resRows);
