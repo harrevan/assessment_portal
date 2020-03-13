@@ -1,31 +1,31 @@
 {
-  "name": "assessment-portal",
-  "version": "1.0.0",
-  "description": "Assessment portal application",
+  "name": "node-js-getting-started",
+  "version": "0.3.0",
+  "description": "A sample Node.js app using Express 4",
+  "engines": {
+    "node": "12.x"
+  },
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "node test.js"
   },
   "dependencies": {
-  "ejs": "^2.5.6",
-  "express": "^4.15.2"
-},
+    "ejs": "^2.5.6",
+    "express": "^4.15.2"
+  },
   "devDependencies": {
     "request": "^2.81.0",
     "tape": "^4.7.0"
   },
-   "repository": {
+  "repository": {
     "type": "git",
-    "url": "https://git.heroku.com/powerful-citadel-11797.git"
-  }, 
-    "keywords": [
+    "url": "https://github.com/heroku/node-js-getting-started"
+  },
+  "keywords": [
     "node",
     "heroku",
     "express"
   ],
-  "author": "Evan Harrison",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+  "license": "MIT"
 }
