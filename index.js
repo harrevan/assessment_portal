@@ -16,7 +16,8 @@ app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 app.get("/students", function(req,res){
     let classTime = req.query.time;
-    var sql = "SELECT student_name FROM students WHERE class_time = " + classTime;
+    console.log(classTime);
+    var sql = "SELECT student_name FROM students";//WHERE class_time = " + classTime;
 
     pool.query(sql, function(err, result) {
         // If an error occurred...
