@@ -51,7 +51,7 @@ function getAssessmentSelectOptions(unit, type){
 function displayAssessments(assessments){
     
     //Clear options first
-    document.getElementById("assessment_list").innerHTML = "";
+    document.getElementById("assess_id").innerHTML = "";
 
     var sel = document.getElementById("assess_id");
     for(var i = 0; i < assessments.length; i++){
