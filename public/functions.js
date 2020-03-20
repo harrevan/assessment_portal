@@ -43,19 +43,22 @@ function createList(time, studentName){
 }
 
 function getAssessmentSelectOptions(unit, type){
-    var assess_unit = unit;
-    var assess_type = type;
-    console.log(unit + " " + type);
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-       // var studentName = JSON.parse(this.responseText);
-        //console.log(this.responseText);
-        //console.log(studentName[0].upper);
+    if(unit != 0 && type != 0){
+        var assess_unit = unit;
+        var assess_type = type;
+        console.log(unit + " " + type);
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+           // var studentName = JSON.parse(this.responseText);
+            //console.log(this.responseText);
+            //console.log(studentName[0].upper);
 
-        //createList(classTime, studentName);
-        }
-    };
-    xhttp.open("GET", "/assess_select_options?unit=" + unit + "&type=" + type, true);
-    xhttp.send();
+            //createList(classTime, studentName);
+            }
+        };
+        xhttp.open("GET", "/assess_select_options?unit=" + unit + "&type=" + type, true);
+        xhttp.send();  
+
+    }
 }  
