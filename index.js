@@ -42,7 +42,7 @@ app.get('/assess_select_options', function(req,res){
     console.log("DB params: " + unit + type);
     var resRows;
     // Select students according to class time
-    const sql = "SELECT assessment_title FROM master_assessment WHERE assessment_period = '" + unit + "' AND subject = '" + type + "'";
+    const sql = "SELECT assessment_title, assessment_id FROM master_assessment WHERE assessment_period = '" + unit + "' AND subject = '" + type + "'";
     pool.query(sql, function(err, result) {
         // If an error occurred...
         if (err) {
