@@ -24,7 +24,7 @@ function createList(time, studentName){
   	for(var i  = 0; i < studentName.length; i++){
     		var but = document.createElement("BUTTON");
     		but.setAttribute("id", "student" + studentName[i].student_id);
-        but.onclick = "displayStudentData(this.value)";
+        but.onclick = displayStudentData(this.value);
     		but.className = "list-group-item list-group-item-action";
     		but.innerHTML = studentName[i].upper;
         but.value = studentName[i].upper;
