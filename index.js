@@ -34,7 +34,29 @@ app.get('/students', function(req,res){
         // Return JSON result
         res.json(resRows);
     });
+});
 
+app.get('/assess_select_options', function(req,res){
+    let unit = req.query.unit;
+    let type = req.query.type;
+    console.log("DB params: " + unit + type);
+    var resRows;
+    // Select students according to class time
+    const sql = "SELECT upper(student_name) FROM students WHERE class_time = '" + classTime + "'";
+    pool.query(sql, function(err, result) {
+        // If an error occurred...
+        if (err) {
+            console.log("Error in query: ")
+            console.log(err);
+        }
+        resRows = result.rows;
+        // Log this to the console for debugging purposes.
+        console.log("Back from DB with result:");
+        console.log(resRows);
+
+        // Return JSON result
+        res.json(resRows);
+    });
 });
 
 
