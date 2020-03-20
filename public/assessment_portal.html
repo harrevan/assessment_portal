@@ -8,11 +8,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="functions.js"></script>
-
-
-
-
-
 </head>
 <body>
 
@@ -36,6 +31,99 @@
     <div class="col-sm-4">
     <!-- Individual student data here -->
       <h1> Individual Student Data</h1>
+      <div>
+      	Display student table here...
+      </div>
+      <div>
+	    <div class="container">
+	      <h2>Enter Student Scores</h2><br>
+	      <form action="submit_scores.php" method="post">
+	        <div class="input-group mb-3">
+	          <label class="input-group-text" for="time"><b>Select Class Time:</b> </label>
+	          <select class="custom-select" id="time" name="time" onchange="this.form.submit()">
+	            <option value="">Select</option>
+	            <option value="AM">AM</option>
+	            <option value="PM">PM</option>
+	          </select> 
+	          <script type="text/javascript">
+	            document.getElementById('time').value = "<?php echo $_SESSION['time'];?>";
+	          </script>  
+	        </div>
+	        <div class="input-group mb-3">
+	          <label class="input-group-text" for="assessment_list"><b>Select Assessment Unit:</b> </label>
+	          <select class="custom-select" id="assessment_list" name="assessments" onchange="this.form.submit()">
+	            <option value ="">Select</option>
+	            <option value="1">Unit 1 Assessments</option>
+	            <option value="2">Unit 2 Assessments</option>
+	            <option value="3">Unit 3 Assessments</option>
+	            <option value="4">Unit 4 Assessments</option>
+	            <option value="5">Unit 5 Assessments</option>
+	            <option value="6">Unit 6 Assessments</option>
+	          </select> 
+	          <script type="text/javascript">
+	            document.getElementById('assessment_list').value = "<?php echo $_SESSION['assessments'];?>";
+	          </script>  
+	        </div>
+	        <div class="input-group mb-3">
+	          <label class="input-group-text" for="subject_list"><b>Select Assessment Type:</b> </label>
+	          <select class="custom-select" id="subject_list" name="subject" onchange="this.form.submit()">
+	            <option value="">Select</option>
+	            <option value="ELA">ELA</option>
+	            <option value="MATH">Math</option>
+	          </select> 
+	          <script type="text/javascript">
+	            document.getElementById('subject_list').value = "<?php echo $_SESSION['subject'];?>";
+	          </script>  
+	        </div>
+	        <div class="input-group mb-3">
+	          <label class="input-group-text" for="stud_name"><b>Student Name:</b></label>
+	          <select class="custom-select" class="selectpicker" name="student_name" id="stud_name">
+	            <option>Select</option>
+	            <?php
+	             foreach ($student_rows as $student)
+	             {
+	               $name = $student['student_name'];
+	               $id = $student['student_id'];
+	               ?>
+	               <option value="<?php echo $id;?>"><?php echo $name;?></option>
+	           <?php
+	             }    
+	           ?> 
+	          </select> 
+	        </div>
+	        <div class="input-group mb-3">
+	          <label class="input-group-text" for="assess_id"><b>Assessment:</b></label>
+	          <select class="custom-select" name="assessment" id="assess_id">
+	            <option>Select</option>
+	            <?php
+	             foreach ($assessment_rows as $assessment)
+	             {
+	               $title = $assessment['assessment_title'];
+	               $a_id = $assessment['assessment_id'];
+	               ?>
+	               <option value="<?php echo $a_id; ?>"><?php echo $title;?></option>     
+	            <?php
+	              }
+	            ?> 
+	          </select>           
+	        </div>
+	        <div class="input-group mb-3">
+	          <label class="input-group-text" for="score_id"><b>Assessment Score:</b></label>
+	          <select class="custom-select" name="score" id="score_id">
+	            <option>Select</option>
+	            <option value="MT">Met Target</option>
+	            <option value="NT">Near Target</option> 
+	            <option value="BT">Below Target</option>      
+	          </select>         
+	        </div>
+	        <div class="input-group mb-3">
+	          <label class="input-group-text" for="answ_id"><b>Correct Answers:</b></label>
+	          <input type="number" class="form-control" id="answ_id" value="0" name="answers">  
+	        </div>
+	        <button class="btn btn-primary btn-lg btn-block" type="submit">Enter Score</button>
+	      </form>
+	    </div>      	
+      </div>
     </div>
     <div class="col-sm-4">
       <!-- Class data here -->
