@@ -19,7 +19,7 @@ app.get('/students', function(req,res){
     console.log(classTime);
     var resRows;
     // Select students according to class time
-    const sql = "SELECT upper(student_name) FROM students WHERE class_time = '" + classTime + "'";
+    const sql = "SELECT upper(student_name), student_id FROM students WHERE class_time = '" + classTime + "'";
     pool.query(sql, function(err, result) {
         // If an error occurred...
         if (err) {
