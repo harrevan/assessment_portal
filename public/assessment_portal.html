@@ -45,7 +45,7 @@
 	      <form action=" " method="post">
 	        <div class="input-group mb-3">
 	          <label class="input-group-text" for="assessment_list"><b>Select Assessment Unit:</b> </label>
-	          <select class="custom-select" id="assessment_list" name="assessments">
+	          <select class="custom-select" id="assessment_list" name="assessments" onchange="getAssessmentSelectOptions(this.value, document.getElementById('subject_list').value)">
 	            <option value="1">Unit 1 Assessments</option>
 	            <option value="2">Unit 2 Assessments</option>
 	            <option value="3">Unit 3 Assessments</option>
@@ -57,7 +57,6 @@
 	        <div class="input-group mb-3">
 	          <label class="input-group-text" for="subject_list"><b>Select Assessment Type:</b> </label>
 	          <select class="custom-select" id="subject_list" name="subject" onchange="getAssessmentSelectOptions(document.getElementById('assessment_list').value, this.value)">
-	            <option value="">Select</option>
 	            <option value="ELA">ELA</option>
 	            <option value="MATH">Math</option>
 	          </select> 
