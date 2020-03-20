@@ -68,5 +68,5 @@ function displayAssessments(assessments){
 
 function displayStudentData(id){
     console.log("function called");
-    document.getElementById("student_heading").innerText = "Enter Scores For " + document.getElementById(id);
+    document.getElementById("student_heading").innerText = "Enter Scores For " + document.getElementById(id).value;
 }
