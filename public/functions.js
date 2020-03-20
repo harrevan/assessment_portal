@@ -40,6 +40,8 @@ function createList(time, studentName){
   		but.innerHTML = studentName[i].upper;
   		document.getElementById("student_list").appendChild(but);
 	}
+}
+
 function getAssessmentUnit(unit){
     console.log(unit);
 
