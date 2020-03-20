@@ -53,7 +53,7 @@ function displayAssessments(assessments){
     //Clear options first
     document.getElementById("assessment_list").innerHTML = "";
 
-    var sel = document.getElementById("assessment_list");
+    var sel = document.getElementById("assess_id");
     for(var i = 0; i < assessments.length; i++){
         // add options from query
         var option = document.createElement("option");
