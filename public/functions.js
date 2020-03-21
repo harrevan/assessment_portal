@@ -91,7 +91,6 @@ function enterStudentData(){
         }
     };
     xhttp.open("POST", "/enter_scores", true);
-    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    //xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("student=" + student_id + "&assessment=" + assessment_id +"&score=" + assess_score + "&answers=" + correct_answers);
 }
