@@ -59,4 +59,33 @@ app.get('/assess_select_options', function(req,res){
     });
 });
 
+app.post('/enter_scores', function(req,res){
+    let student = req.query.student;
+    let assessment = req.query.assessment_id;
+    let score = req.query.score;
+    let answers = req.query.answers;
+
+    console.log("DB score params: " + student + " " + assessment + " " + score + " " + answers);
+    var resRows;
+    // Select students according to class time
+
+    const sql = "INSERT INTO assessment_score (student_id, assessment_id, score, correct_answers) VALUES '" 
+                + student "'" + "'" + assessment + "'" +"'" + score + "'" +"'" + answers + "'" +
+                " ON CONFLICT (student_id, assessment_id) DO UPDATE SET score = excluded.score, correct_answers = excluded.correct_answers'";
+    pool.query(sql, function(err, result) {
+        // If an error occurred...
+        if (err) {
+            console.log("Error in update: ")
+            console.log(err);
+        }
+        //resRows = result.rows;
+        // Log this to the console for debugging purposes.
+        //console.log("Back from DB with result:");
+        //console.log(resRows);
+
+        // Return JSON result
+        res.send("Score entered successfully!");
+    });
+});
+
 
