@@ -22,9 +22,10 @@ function createList(time, studentName){
   	title.innerHTML = time + " Students";
   	document.getElementById("student_list").appendChild(title);
   	for(var i  = 0; i < studentName.length; i++){
+        var id = studentName[i].student_id;
     		var but = document.createElement("BUTTON");
-    		but.setAttribute("id", "student" + studentName[i].student_id);
-        but.onclick = function(){ displayStudentData(studentName[i].student_id, this.value);};
+    		but.setAttribute("id", "student" + id);
+        but.onclick = function(){ displayStudentData(id, this.value);};
     		but.className = "list-group-item list-group-item-action";
     		but.innerHTML = studentName[i].upper;
         but.value = studentName[i].upper;
