@@ -23,12 +23,13 @@ function createList(time, studentName){
   	document.getElementById("student_list").appendChild(title);
   	for(var i  = 0; i < studentName.length; i++){
         var id = studentName[i].student_id;
+        var name = studentName[i].upper;
     		var but = document.createElement("BUTTON");
     		but.setAttribute("id", "student" + id);
-        but.onclick = function(){ displayStudentData(id, this.value);};
     		but.className = "list-group-item list-group-item-action";
-    		but.innerHTML = studentName[i].upper;
-        but.value = studentName[i].upper;
+    		but.innerHTML = name;
+        but.value = id;
+        but.onclick = function(){ prepareStudentData(id, name);};        
     		document.getElementById("student_list").appendChild(but);
 	}
 }
@@ -67,7 +68,18 @@ function displayAssessments(assessments){
 
 }
 
-function displayStudentData(id, name){
-    console.log("function called");
-    document.getElementById("student_heading").innerText = "Enter Scores For " + name;
+function prepareStudentData(id, name){
+
+    //Hold student id in hidden input field.
+    var student = document.getElementById("student_name"); 
+    student.value = id;
+
+    //display student name
+    document.getElementById("student_heading").innerText = name;
+}
+
+function enterStudentData(id){
+    var student_id = id;
+    var assessment_id = document.getElementById("assess_id").value;
+    var assess_score = document.getElementById("").value
 }

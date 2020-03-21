@@ -36,14 +36,15 @@
     </div>
     <div class="col-sm-5">
     <!-- Individual student data here -->
-      <h1 id=student_heading></h1>
+      <h1>Student Data</h1>
       <div>
-      	Display student table here...
+      	Will eventually display student table here...
       </div>
 	    <div class="container-fluid">
-	      <h2>Enter Student Scores</h2><br>
-	      <form action=" " method="post">
+	      <h2 id=student_heading></h2><br>
+	      <form method>
 	        <div class="input-group mb-3">
+	          <input type="hidden" id="student_name" value="">	
 	          <label class="input-group-text" for="assessment_list"><b>Select Assessment Unit:</b> </label>
 	          <select class="custom-select" id="assessment_list" name="assessments" onchange="getAssessmentSelectOptions(this.value, document.getElementById('subject_list').value)">
 	          	<option value="0">Select</option>
@@ -82,7 +83,7 @@
 	          <label class="input-group-text" for="answ_id"><b>Correct Answers:</b></label>
 	          <input type="number" class="form-control" id="answ_id" value="0" name="answers">  
 	        </div>
-	        <button class="btn btn-primary btn-block" type="submit">Enter Score</button>
+	        <button class="btn btn-primary btn-block" onclick="enterStudentData(document.getElementById(assess_id).value)">Enter Score</button>
 	      </form>
 	    </div>      	
     </div>
