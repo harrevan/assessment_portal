@@ -9,6 +9,8 @@ const pool = new Pool({ connectionString: connectionString });
 
 
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
+app.use(express.urlendcoded({extended: true}));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.get('/', (req, res) => res.render('pages/index'));
@@ -60,10 +62,10 @@ app.get('/assess_select_options', function(req,res){
 });
 
 app.post('/enter_scores', function(req,res){
-    let student = req.query.student;
-    let assessment = req.query.assessment_id;
-    let score = req.query.score;
-    let answers = req.query.answers;
+    let student = req.body.student;
+    let assessment = req.body.assessment_id;
+    let score = req.body.score;
+    let answers = req.body.answers;
 
     console.log("DB score params: " + student + " " + assessment + " " + score + " " + answers);
     var resRows;
