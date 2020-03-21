@@ -29,7 +29,7 @@ function createList(time, studentName){
     		but.className = "list-group-item list-group-item-action";
     		but.innerHTML = name;
         but.value = id;
-        but.onclick = function(){ prepareStudentData(id, name);};        
+        but.onclick = function(){ prepareStudentData(this.value, this.innerHTML);};        
     		document.getElementById("student_list").appendChild(but);
 	}
 }
