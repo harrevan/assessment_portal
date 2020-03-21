@@ -61,7 +61,7 @@ app.get('/assess_select_options', function(req,res){
     });
 });
 
-app.post('/enter_scores', function(req,res){
+/*app.post('/enter_scores', function(req,res){
     let student = req.body.student;
     let assessment = req.body.assessment_id;
     let score = req.body.score;
@@ -88,6 +88,6 @@ app.post('/enter_scores', function(req,res){
         // Return JSON result
         res.send("Score entered successfully!");
     });
-});
+});*/
 
 
