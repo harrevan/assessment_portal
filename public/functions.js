@@ -60,12 +60,13 @@ function displayAssessments(assessments){
     document.getElementById("assess_id").innerHTML = "";
     var sel = document.getElementById("assess_id");
     for(var i = 0; i < assessments.length; i++){
+        sel.options[sel.options.length] = new Option(assessments[i].assessment_title,assessments[i].assessment_id);
         // add options from query
-        var option = document.createElement("option");
-        console.log(assessments[i].assessment_title + "-" + assessments[i].assessment_id);
-        option.text = assessments[i].assessment_title;
-        option.value = assessments[i].assessment_id;
-        sel.appendChild(option);     
+        //var option = document.createElement("option");
+        //console.log(assessments[i].assessment_title + "-" + assessments[i].assessment_id);
+        //option.text = assessments[i].assessment_title;
+        //option.value = assessments[i].assessment_id;
+        //sel.appendChild(option);     
     }
 
 }
