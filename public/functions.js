@@ -60,15 +60,14 @@ function displayAssessments(assessments){
     document.getElementById("assess_id").innerHTML = "";
     var sel = document.getElementById("assess_id");
     for(var i = 0; i < assessments.length; i++){
-        sel.options[sel.options.length] = new Option(assessments[i].assessment_title,assessments[i].assessment_id);
-        // add options from query
-        //var option = document.createElement("option");
-        //console.log(assessments[i].assessment_title + "-" + assessments[i].assessment_id);
-        //option.text = assessments[i].assessment_title;
-        //option.value = assessments[i].assessment_id;
-        //sel.appendChild(option);     
+        //sel.options[sel.options.length] = new Option(assessments[i].assessment_title,assessments[i].assessment_id);
+         //add options from query
+        var option = document.createElement("option");
+        console.log(assessments[i].assessment_title + "-" + assessments[i].assessment_id);
+        option.text = assessments[i].assessment_title;
+        option.value = assessments[i].assessment_id;
+        sel.appendChild(option);     
     }
-
 }
 
 function prepareStudentData(id, name){
@@ -84,7 +83,7 @@ function enterStudentData(){
     var assessment_id = document.getElementById("assess_id").value;
     var assess_score = document.getElementById("score_id").value;
     var correct_answers = document.getElementById("answ_id").value;
-
+    console.log("Funct: enterStudentData: student_id = " + student_id + " assessment_id = " + assessment_id + " assess_score= " + assess_score + " Answers= " + correct_answers);
 
     //AJAX Post
     var xhttp = new XMLHttpRequest();
