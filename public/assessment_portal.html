@@ -31,8 +31,8 @@
 		<button class="btn btn-primary" id="class" name="time" type="button" onclick="displayStudents('PM')" value="PM">PM Class</button>
 	  </div>
 	</div>
-	<div class="col-sm-2">
-	  <div class="input-group sm">
+	<div class="col-sm-3">
+	  <div class="input-group mb-3">
 		<input type="hidden" id="student_name" value="">	
 		<label class="input-group-text" for="assessment_list"><b>Select Assessment Unit:</b> </label>
 		<select class="custom-select" id="assessment_list" name="assessments" onchange="getAssessmentSelectOptions(this.value, document.getElementById('subject_list').value)">
@@ -46,8 +46,8 @@
 		</select> 
 	  </div>		
 	</div>
-	<div class="col-sm-2">
-	  <div class="input-group sm">
+	<div class="col-sm-3">
+	  <div class="input-group mb-3">
 		<label class="input-group-text" for="subject_list"><b>Select Assessment Type:</b> </label>
 		<select class="custom-select" id="subject_list" name="subject" onchange="getAssessmentSelectOptions(document.getElementById('assessment_list').value, this.value)">
 		  <option value="0">Select</option>
@@ -56,8 +56,8 @@
 		</select> 
 	  </div>		
 	</div>	
-	<div class="col-sm-6">
-	  <div class="input-group sm">
+	<div class="col-sm-4">
+	  <div class="input-group mb-3">
 	    <label class="input-group-text" for="assess_id"><b>Assessment:</b></label>
 		<select class="custom-select" name="assessment" id="assess_id">
 			  <option>Select</option>
