@@ -76,6 +76,7 @@ function prepareStudentData(id, name){
     student.value = id;
     //display student name
     document.getElementById("student_heading").innerText = "Enter assessment scores for " + name;
+    displayStudentData();
 }
 
 function enterStudentData(){
@@ -99,7 +100,21 @@ function enterStudentData(){
 }
 
 function displayStudentData(){
-    var assessment_title;
-    var score;
-    var correct_answers;
+    var student_id = document.getElementById("student_name").value;
+    var assessment_period = document.getElementById("assessment_list").value;
+    var subject = document.getElementById("subject_list").value;
+
+    //AJAX GET
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var assessment_data = JSON.parse(this.responseText);
+            console.log("Assessment[0] = " + assessment_data[0].assessment_title);
+         //   var assessments = JSON.parse(this.responseText);
+          //  console.log("ASSESSMENTS: " + assessments);
+           // displayAssessments(assessments); 
+        }
+    };
+    xhttp.open("GET", "/student_table_data?student=" + student_id + "&assess_period=" + assessment_period, + "&subject=" + subject, true);
+    xhttp.send();      
 }
