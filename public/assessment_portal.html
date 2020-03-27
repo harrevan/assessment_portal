@@ -31,7 +31,7 @@
 		<button class="btn btn-primary" id="class" name="time" type="button" onclick="displayStudents('PM')" value="PM">PM Class</button>
 	  </div>
 	</div>
-	<div class="col-sm-4">
+	<div class="col-sm-2">
 	  <div class="input-group mb-3">
 		<input type="hidden" id="student_name" value="">	
 		<label class="input-group-text" for="assessment_list"><b>Select Assessment Unit:</b> </label>
@@ -46,7 +46,7 @@
 		</select> 
 	  </div>		
 	</div>
-	<div class="col-sm-3">
+	<div class="col-sm-2">
 	  <div class="input-group mb-3">
 		<label class="input-group-text" for="subject_list"><b>Select Assessment Type:</b> </label>
 		<select class="custom-select" id="subject_list" name="subject" onchange="getAssessmentSelectOptions(document.getElementById('assessment_list').value, this.value)">
@@ -56,7 +56,13 @@
 		</select> 
 	  </div>		
 	</div>	
-	<div class="col-sm-3">
+	<div class="col-sm-6">
+	  <div class="input-group mb-3">
+	    <label class="input-group-text" for="assess_id"><b>Assessment:</b></label>
+		<select class="custom-select" name="assessment" id="assess_id">
+			  <option>Select</option>
+	    </select>           
+	  </div>		
 	</div>		  
   </div>
   <div class="row">
@@ -72,14 +78,6 @@
 	    <div class="container-fluid">
 	      <h2 id=student_heading></h2><br>
 	      <form>
-
-
-	        <div class="input-group mb-3">
-	          <label class="input-group-text" for="assess_id"><b>Assessment:</b></label>
-	          <select class="custom-select" name="assessment" id="assess_id">
-	            <option>Select</option>
-	          </select>           
-	        </div>
 	        <div class="input-group mb-3">
 	          <label class="input-group-text" for="score_id"><b>Assessment Score:</b></label>
 	          <select class="custom-select" name="score" id="score_id">
