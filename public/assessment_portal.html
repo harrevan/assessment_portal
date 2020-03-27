@@ -24,13 +24,16 @@
 </div>
 
 <div class="container-fluid">
+  <div class="row">	
+  <div class="col-sm-2">	
   <form>	
     <span class="form-group">
   	  <button class="btn btn-primary" id="class" name="time" type="button" onclick="displayStudents('AM')" value="AM">AM Class</button>
   	  <button class="btn btn-primary" id="class" name="time" type="button" onclick="displayStudents('PM')" value="PM">PM Class</button>
 	</span>
   </form>
-  <span>
+  </div>
+  <div class="col-sm-4">
 	<form>	
 		<span class="input-group mb-3">
 			<input type="hidden" id="student_name" value="">	
@@ -59,8 +62,10 @@
 			  <option value="0">Select</option>
 			</select>           
 		</span>		  
-	 </form>	
-  </span>
+	 </form>
+  </div>	
+  
+  </div>
   <div class="row">
     <div class="col-sm-2 list-group">
       <div id="student_list"></div>
