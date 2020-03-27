@@ -103,7 +103,6 @@ function displayStudentData(){
     var student_id = document.getElementById("student_name").value;
     var assessment_period = document.getElementById("assessment_list").value;
     var subject = document.getElementById("subject_list").value;
-
     console.log("displayStudentData " + "s_id = " + student_id + " assess = " + assessment_period + " subject = " + subject);
 
     //AJAX GET
@@ -113,9 +112,18 @@ function displayStudentData(){
             var assessment_data = JSON.parse(this.responseText);
             console.log("HOWDY");
             console.log("Assessment[0] = " + assessment_data[0].assessment_title);
-         //   var assessments = JSON.parse(this.responseText);
-          //  console.log("ASSESSMENTS: " + assessments);
-           // displayAssessments(assessments); 
+            var table = document.getElementById("stud_table");
+
+            for(var i = 0; i < assessment_data.length; i++){
+                var row = table.insertRow(i+1);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+
+                cell1.innerHTML = assessment_data[i].assessment_title;
+                cell2.innerHTML = assessment_data[i].score;
+                cell3.innerHTML = assessment_data[i].correct_answers;
+            }
         }
     };
     xhttp.open("GET", "/student_table_data?student=" + student_id + "&assess_period=" + assessment_period + "&subject=" + subject, true);
