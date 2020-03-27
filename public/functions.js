@@ -45,6 +45,7 @@ function getAssessmentSelectOptions(unit, type){
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 var assessments = JSON.parse(this.responseText);
+                console.log("ASSESSMENTS: " + assessments);
                 displayAssessments(assessments); 
             }
         };
@@ -81,6 +82,7 @@ function enterStudentData(){
     var assessment_id = document.getElementById("assess_id").value;
     var assess_score = document.getElementById("score_id").value;
     var correct_answers = document.getElementById("answ_id").value;
+
 
     //AJAX Post
     var xhttp = new XMLHttpRequest();
