@@ -72,9 +72,19 @@
     <div class="col-sm-5">
     <!-- Individual student data here -->
       <h1>Student Data</h1>
-      <div>
-      	Will eventually display student table here...
-      </div>
+      <div id="student_table">
+		<table class="table table-sm table-bordered table-dark table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Assessment Title</th>
+              <th scope="col">MT Total</th>
+              <th scope="col">NT Total</th>
+              <th scope="col">BT Total</th>
+            </tr>
+          </thead>
+          <tbody id="stud_table_body"></tbody>
+	   </table>	  
+	  </div>
 	    <div class="container-fluid">
 	      <h2 id=student_heading></h2><br>
 	      <form>
