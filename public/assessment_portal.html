@@ -24,12 +24,20 @@
 </div>
 
 <div class="container-fluid">
-  <form>	
-    <div class="form-group">
-  	  <button class="btn btn-primary" id="class" name="time" type="button" onclick="displayStudents('AM')" value="AM">AM Class</button>
-  	  <button class="btn btn-primary" id="class" name="time" type="button" onclick="displayStudents('PM')" value="PM">PM Class</button>
-    </div>
-  </form>
+  <div class="row">	
+	<div class="col-sm-2">	  
+	  <div class="form-group">
+	    <button class="btn btn-primary" id="class" name="time" type="button" onclick="displayStudents('AM')" value="AM">AM Class</button>
+		<button class="btn btn-primary" id="class" name="time" type="button" onclick="displayStudents('PM')" value="PM">PM Class</button>
+	  </div>
+	</div>
+	<div class="col-sm-3">
+	</div>
+	<div class="col-sm-4">
+	</div>	
+	<div class="col-sm-3">
+	</div>		  
+  </div>
   <div class="row">
     <div class="col-sm-2 list-group">
       <div id="student_list"></div>
