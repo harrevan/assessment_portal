@@ -71,7 +71,7 @@ app.get('/student_table_data', function(req,res){
     const sql = "SELECT assessment_title, score, correct_answers FROM master_assessment " + 
                 "INNER JOIN assessment_score ON master_assessment.assessment_id = assessment_score.assessment_id " + 
                 //"WHERE student_id = " + student + " AND subject = " + "'" + subject + "'" + " AND assessment_period = " + assess_period;
-                "WHERE subject = " + "'" + subject + "'";
+                "WHERE student_id = " + student + " AND subject = " + "'" + subject + "'";
     console.log(sql);
     pool.query(sql, function(err, result) {
         // If an error occurred...
