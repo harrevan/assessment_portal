@@ -25,18 +25,14 @@
 
 <div class="container-fluid">
   <form>	
-    <div class="form-group">
+    <span class="form-group">
   	  <button class="btn btn-primary" id="class" name="time" type="button" onclick="displayStudents('AM')" value="AM">AM Class</button>
   	  <button class="btn btn-primary" id="class" name="time" type="button" onclick="displayStudents('PM')" value="PM">PM Class</button>
-    </div>
+	</span>
   </form>
-  <div class="row">
-    <div class="col-sm-2 list-group">
-      <div id="student_list"></div>
-    </div>
-    <div class="col-sm-5">
-	  <form>	
-		<div class="input-group mb-3">
+  <span>
+	<form>	
+		<span class="input-group mb-3">
 			<input type="hidden" id="student_name" value="">	
 			<label class="input-group-text" for="assessment_list"><b>Select Assessment Unit:</b> </label>
 			<select class="custom-select" id="assessment_list" name="assessments" onchange="getAssessmentSelectOptions(this.value, document.getElementById('subject_list').value)">
@@ -48,16 +44,28 @@
 			  <option value="5">Unit 5 Assessments</option>
 			  <option value="6">Unit 6 Assessments</option>
 			</select> 
-		  </div>
-		  <div class="input-group mb-3">
+		</span>
+		  <span class="input-group mb-3">
 			<label class="input-group-text" for="subject_list"><b>Select Assessment Type:</b> </label>
 			<select class="custom-select" id="subject_list" name="subject" onchange="getAssessmentSelectOptions(document.getElementById('assessment_list').value, this.value)">
 			  <option value="0">Select</option>
 			  <option value="ELA">ELA</option>
 			  <option value="MATH">Math</option>
 			</select> 
-		  </div>
+		</span>
+		  <span class="input-group mb-3">
+			<label class="input-group-text" for="assess_id"><b>Assessment:</b></label>
+			<select class="custom-select" name="assessment" id="assess_id">
+			  <option value="0">Select</option>
+			</select>           
+		</span>		  
 	 </form>	
+  </span>
+  <div class="row">
+    <div class="col-sm-2 list-group">
+      <div id="student_list"></div>
+    </div>
+    <div class="col-sm-5">
     <!-- Individual student data here -->
       <h1>Student Data</h1>
       <div class="container-fluid">
@@ -77,12 +85,6 @@
 	    <div class="container-fluid">
 	      <h2 id=student_heading></h2><br>
 	      <form>
-	        <div class="input-group mb-3">
-	          <label class="input-group-text" for="assess_id"><b>Assessment:</b></label>
-	          <select class="custom-select" name="assessment" id="assess_id">
-	            <option value="0">Select</option>
-	          </select>           
-	        </div>
 	        <div class="input-group mb-3">
 	          <label class="input-group-text" for="score_id"><b>Assessment Score:</b></label>
 	          <select class="custom-select" name="score" id="score_id">
