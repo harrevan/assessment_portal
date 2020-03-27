@@ -114,6 +114,11 @@ function displayStudentData(){
             console.log("Assessment[0] = " + assessment_data[0].assessment_title);
             var table = document.getElementById("stud_table");
 
+            //Clear existing table rows
+            while(table.rows.length > 1){
+                table.deleteRow(1);
+            }
+
             for(var i = 0; i < assessment_data.length; i++){
                 var row = table.insertRow(i+1);
                 var cell1 = row.insertCell(0);
