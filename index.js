@@ -71,9 +71,9 @@ app.post('/enter_scores', function(req,res){
     var resRows;
     // Select students according to class time
 
-    const sql = "INSERT INTO assessment_score (student_id, assessment_id, score) VALUES (1, 1, 'MT')"; 
-                //+ student + "'" + "'" + assessment + "'" +"'" + score + "'" +"'" + answers + "'" +
-                //" ON CONFLICT (student_id, assessment_id) DO UPDATE SET score = excluded.score, correct_answers = excluded.correct_answers'";
+    const sql = "INSERT INTO assessment_score (student_id, assessment_id, score) VALUES (" 
+                + student + "," + + assessment + ","  + score  + "," + answers +
+                " ON CONFLICT (student_id, assessment_id) DO UPDATE SET score = excluded.score, correct_answers = excluded.correct_answers'";
     pool.query(sql, function(err, result) {
         // If an error occurred...
         if (err) {
