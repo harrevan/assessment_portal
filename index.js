@@ -63,7 +63,7 @@ app.get('/assess_select_options', function(req,res){
 
 app.post('/enter_scores', function(req,res){
     let student = req.body.student;
-    let assessment = req.body.assessment_id;
+    let assessment = req.body.assessment;
     let score = req.body.score;
     let answers = req.body.answers;
 
