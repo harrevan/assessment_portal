@@ -104,6 +104,8 @@ function displayStudentData(){
     var assessment_period = document.getElementById("assessment_list").value;
     var subject = document.getElementById("subject_list").value;
 
+    console.log("displayStudentData " + "s_id = " + student_id + " assess = " + assessment_period + " subject = " + subject);
+
     //AJAX GET
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -115,6 +117,6 @@ function displayStudentData(){
            // displayAssessments(assessments); 
         }
     };
-    xhttp.open("GET", "/student_table_data?student=" + student_id + "&assess_period=" + assessment_period, + "&subject=" + subject, true);
+    xhttp.open("GET", "/student_table_data?student=" + student_id + "&assess_period=" + assessment_period + "&subject=" + subject, true);
     xhttp.send();      
 }
