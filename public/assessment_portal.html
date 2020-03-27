@@ -35,45 +35,48 @@
       <div id="student_list"></div>
     </div>
     <div class="col-sm-5">
+	  <form>	
+		<div class="input-group mb-3">
+			<input type="hidden" id="student_name" value="">	
+			<label class="input-group-text" for="assessment_list"><b>Select Assessment Unit:</b> </label>
+			<select class="custom-select" id="assessment_list" name="assessments" onchange="getAssessmentSelectOptions(this.value, document.getElementById('subject_list').value)">
+				<option value="0">Select</option>
+			  <option value="1">Unit 1 Assessments</option>
+			  <option value="2">Unit 2 Assessments</option>
+			  <option value="3">Unit 3 Assessments</option>
+			  <option value="4">Unit 4 Assessments</option>
+			  <option value="5">Unit 5 Assessments</option>
+			  <option value="6">Unit 6 Assessments</option>
+			</select> 
+		  </div>
+		  <div class="input-group mb-3">
+			<label class="input-group-text" for="subject_list"><b>Select Assessment Type:</b> </label>
+			<select class="custom-select" id="subject_list" name="subject" onchange="getAssessmentSelectOptions(document.getElementById('assessment_list').value, this.value)">
+			  <option value="0">Select</option>
+			  <option value="ELA">ELA</option>
+			  <option value="MATH">Math</option>
+			</select> 
+		  </div>
+	 </form>	
     <!-- Individual student data here -->
       <h1>Student Data</h1>
       <div class="container-fluid">
-		<table class="table table-sm table-bordered table-dark table-striped" id="student_table">
-            <thead>
-              <tr>
-                <th scope="col">Assessment Title</th>
-                <th scope="col">MT Total</th>
-                <th scope="col">NT Total</th>
-                <th scope="col">BT Total</th>
-              </tr>
+		<table id="student_table" class="table table-sm table-bordered table-dark table-striped">
+			<thead>
+			  <tr>
+				<th scope="col">Assessment</th>
+				<th scope="col">Score</th>
+				<th scope="col">Correct Answers</th>
+			  </tr>
 			</thead>
-		</table>			  
+			<tbody id="student_table_body">
+			</tbody>	
+		</table>					  
       	Will eventually display student table here...
       </div>
 	    <div class="container-fluid">
 	      <h2 id=student_heading></h2><br>
 	      <form>
-	        <div class="input-group mb-3">
-	          <input type="hidden" id="student_name" value="">	
-	          <label class="input-group-text" for="assessment_list"><b>Select Assessment Unit:</b> </label>
-	          <select class="custom-select" id="assessment_list" name="assessments" onchange="getAssessmentSelectOptions(this.value, document.getElementById('subject_list').value)">
-	          	<option value="0">Select</option>
-	            <option value="1">Unit 1 Assessments</option>
-	            <option value="2">Unit 2 Assessments</option>
-	            <option value="3">Unit 3 Assessments</option>
-	            <option value="4">Unit 4 Assessments</option>
-	            <option value="5">Unit 5 Assessments</option>
-	            <option value="6">Unit 6 Assessments</option>
-	          </select> 
-	        </div>
-	        <div class="input-group mb-3">
-	          <label class="input-group-text" for="subject_list"><b>Select Assessment Type:</b> </label>
-	          <select class="custom-select" id="subject_list" name="subject" onchange="getAssessmentSelectOptions(document.getElementById('assessment_list').value, this.value)">
-	            <option value="0">Select</option>
-	            <option value="ELA">ELA</option>
-	            <option value="MATH">Math</option>
-	          </select> 
-	        </div>
 	        <div class="input-group mb-3">
 	          <label class="input-group-text" for="assess_id"><b>Assessment:</b></label>
 	          <select class="custom-select" name="assessment" id="assess_id">

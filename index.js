@@ -61,6 +61,26 @@ app.get('/assess_select_options', function(req,res){
     });
 });
 
+app.get('/student_table_data', function(req,res){
+    var resRows;
+    // Select students according to class time
+    const sql = "SELECT assessment_title, assessment_id FROM master_assessment WHERE assessment_period = '" + unit + "' AND subject = '" + type + "'";
+    pool.query(sql, function(err, result) {
+        // If an error occurred...
+        if (err) {
+            console.log("Error in query: ")
+            console.log(err);
+        }
+        resRows = result.rows;
+        // Log this to the console for debugging purposes.
+        console.log("Back from DB with result:");
+        console.log(resRows);
+
+        // Return JSON result
+        res.json(resRows);
+    });
+});
+
 app.post('/enter_scores', function(req,res){
     let student = req.body.student;
     let assessment = req.body.assessment;

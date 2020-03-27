@@ -97,3 +97,9 @@ function enterStudentData(){
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("student=" + student_id + "&assessment=" + assessment_id +"&score=" + assess_score + "&answers=" + correct_answers);
 }
+
+function displayStudentData(){
+    var assessment_title;
+    var score;
+    var correct_answers;
+}
