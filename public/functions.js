@@ -62,6 +62,7 @@ function displayAssessments(assessments){
     for(var i = 0; i < assessments.length; i++){
         // add options from query
         var option = document.createElement("option");
+        console.log(assessments[i].assessment_title + "-" + assessments[i].assessment_id);
         option.text = assessments[i].assessment_title;
         option.value = assessments[i].assessment_id;
         sel.appendChild(option);     
