@@ -74,8 +74,12 @@ function prepareStudentData(id, name){
     //Hold student id in hidden input field.
     var student = document.getElementById("student_name"); 
     student.value = id;
-    //display student name
+
+    //display student name in headers
     document.getElementById("student_heading").innerText = "Enter assessment scores for " + name;
+    document.getElementById("stud_header").innerText = name + " Data";
+
+    //display data table
     displayStudentData();
 }
 
