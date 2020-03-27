@@ -76,7 +76,7 @@ function prepareStudentData(id, name){
     document.getElementById("student_heading").innerText = "Enter assessment scores for " + name;
 }
 
-/*function enterStudentData(){
+function enterStudentData(){
     var student_id = document.getElementById("student_name").value;
     var assessment_id = document.getElementById("assess_id").value;
     var assess_score = document.getElementById("score_id").value;
@@ -93,4 +93,4 @@ function prepareStudentData(id, name){
     xhttp.open("POST", "/enter_scores", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("student=" + student_id + "&assessment=" + assessment_id +"&score=" + assess_score + "&answers=" + correct_answers);
-}*/
+}

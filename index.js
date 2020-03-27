@@ -61,7 +61,7 @@ app.get('/assess_select_options', function(req,res){
     });
 });
 
-/*app.post('/enter_scores', function(req,res){
+app.post('/enter_scores', function(req,res){
     let student = req.body.student;
     let assessment = req.body.assessment_id;
     let score = req.body.score;
@@ -71,9 +71,9 @@ app.get('/assess_select_options', function(req,res){
     var resRows;
     // Select students according to class time
 
-    const sql = "INSERT INTO assessment_score (student_id, assessment_id, score, correct_answers) VALUES '" 
-                + student + "'" + "'" + assessment + "'" +"'" + score + "'" +"'" + answers + "'" +
-                " ON CONFLICT (student_id, assessment_id) DO UPDATE SET score = excluded.score, correct_answers = excluded.correct_answers'";
+    const sql = "INSERT INTO assessment_score (student_id, assessment_id, score, correct_answers) VALUES 1, 1, 'MT', 10"; 
+                //+ student + "'" + "'" + assessment + "'" +"'" + score + "'" +"'" + answers + "'" +
+                //" ON CONFLICT (student_id, assessment_id) DO UPDATE SET score = excluded.score, correct_answers = excluded.correct_answers'";
     pool.query(sql, function(err, result) {
         // If an error occurred...
         if (err) {
@@ -88,6 +88,6 @@ app.get('/assess_select_options', function(req,res){
         // Return JSON result
         res.send("Score entered successfully!");
     });
-});*/
+});
 
 
