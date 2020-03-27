@@ -110,8 +110,6 @@ function displayStudentData(){
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var assessment_data = JSON.parse(this.responseText);
-            console.log("HOWDY");
-            console.log("Assessment[0] = " + assessment_data[0].assessment_title);
             var table = document.getElementById("stud_table");
 
             //Clear existing table rows
