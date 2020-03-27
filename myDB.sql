@@ -110,12 +110,12 @@ VALUES
 
 
     -- Period 2
-INSERT INTO master_assessment(assessment_id, assessment_title, subject, assessment_period)
-VALUES    
-    (DEFAULT, 'I can hear words that rhyme', 'ELA', 1),
-    (DEFAULT, 'I can name the letters in my name out of order', 'ELA', 1),
-    (DEFAULT, 'I can identify 26 letters', 'ELA', 1),
-    (DEFAULT, 'I can identify 10 sounds', 'ELA', 1);  
+--INSERT INTO master_assessment(assessment_id, assessment_title, subject, assessment_period)
+--VALUES    
+  --  (DEFAULT, 'I can hear words that rhyme', 'ELA', 1),
+   -- (DEFAULT, 'I can name the letters in my name out of order', 'ELA', 1),
+    --(DEFAULT, 'I can identify 26 letters', 'ELA', 1),
+    --(DEFAULT, 'I can identify 10 sounds', 'ELA', 1);  
 
 INSERT INTO master_assessment(assessment_id, assessment_title, subject, assessment_period)
 VALUES
