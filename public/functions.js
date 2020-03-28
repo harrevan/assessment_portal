@@ -169,7 +169,7 @@ function displayClassData() {
                 var cell2 = row.insertCell(1);
                 var cell3 = row.insertCell(2);
                 var cell4 = row.insertCell(3);
-                cell1.innerHTML = document.getElementById("assess_id")[i].value;
+                cell1.innerHTML = document.getElementById("assess_id")[i].text;
 
                 console.log("I = " + i + " CELL1 = " + class_data[i].assessment_title + " ID = " + document.getElementById("assess_id")[i].value);
 
