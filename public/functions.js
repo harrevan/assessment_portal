@@ -170,7 +170,7 @@ function displayClassData() {
                 var cell4 = row.insertCell(3);
                 cell1.innerHTML = class_data[i].assessment_title;
 
-                console.log("I = " + i + "CELL1 = " + class_data[i].assessment_title);
+                console.log("I = " + i + " CELL1 = " + class_data[i].assessment_title + " ID = " + document.getElementById("assess_id")[i].value);
 
                 for(var j = 0; j < class_data.length; j++){
                     console.log("Query title: " + class_data[j].assessment_title);
