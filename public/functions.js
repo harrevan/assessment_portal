@@ -171,6 +171,8 @@ function displayClassData() {
                 cell1.innerHTML = class_data[i].assessment_title;
 
                 for(var j = 0; j < class_data.length; j++){
+                    console.log("Query title: " + class_data[j].assessment_title);
+                    console.log("Element title: " + document.getElementById("assess_id")[i].value);
                     if(class_data[j].assessment_title == document.getElementById("assess_id")[i].value){
                         console.log("Assessment value: " + document.getElementById("assess_id")[i].value);
                         if(class_data[j].score == "MT"){
