@@ -172,8 +172,10 @@ function displayClassData() {
 
                 for(var j = 0; j < class_data.length; j++){
                     if(class_data[j].assessment_title == document.getElementById("assess_id")[i].value){
+                        console.log("Assessment value: " + document.getElementById("assess_id")[i].value);
                         if(class_data[j].score == "MT"){
                             mtTotal += class_data[j].count;
+                            console.log("MT scores?: " + class_data[j].score);
                         }
                         if(class_data[j].score == "NT"){
                             ntTotal += class_data[j].count;
