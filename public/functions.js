@@ -156,15 +156,16 @@ function displayClassData() {
 
            var numAssessments = document.getElementById("assess_id").length;
 
-           // score totals
-           var mtTotal = 0;
-           var ntTotal = 0;
-           var btTotal = 0;
+
 
            console.log(class_data.length);
 
            //display class table
            for(var i = 0; i < numAssessments; i++){
+                // score totals
+                var mtTotal = 0;
+                var ntTotal = 0;
+                var btTotal = 0;
                 var row = table.insertRow(i+1);
                 // td cells
                 var cell1 = row.insertCell(0);
@@ -196,6 +197,7 @@ function displayClassData() {
                 cell2.innerHTML = mtTotal;
                 cell3.innerHTML = ntTotal;
                 cell4.innerHTML = btTotal;
+
            }
         }
     };
