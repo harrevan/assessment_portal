@@ -99,7 +99,7 @@ app.get('/class_data', function(req,res){
                 "FROM assessment_score " +
                 "INNER JOIN master_assessment ON master_assessment.assessment_id = assessment_score.assessment_id " +
                 "INNER JOIN students ON students.student_id = assessment_score.student_id " +
-                "WHERE subject = '"+ subject + "' AND assessment_period = " + assess_period + " AND class_time = '" + time + "' "
+                "WHERE subject = '"+ subject + "' AND assessment_period = " + assess_period + " AND class_time = '" + time + "' " +
                 "GROUP BY assessment_title, score";
     console.log(sql);
     pool.query(sql, function(err, result) {
