@@ -187,7 +187,7 @@ function displayClassData() {
                         else if(class_data[j].score == "NT"){
                             ntTotal += parseInt(class_data[j].count,10);
                         }
-                        else
+                        else{
                             btTotal += parseInt(class_data[j].count,10);
                         }
                     }  
