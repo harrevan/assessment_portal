@@ -170,20 +170,22 @@ function displayClassData() {
                 var cell4 = row.insertCell(3);
                 cell1.innerHTML = class_data[i].assessment_title;
 
+                console.log("I = " + i + "CELL1 = " + class_data[i].assessment_title);
+
                 for(var j = 0; j < class_data.length; j++){
                     console.log("Query title: " + class_data[j].assessment_title);
                     console.log("Element title: " + document.getElementById("assess_id")[i].text);
                     if(class_data[j].assessment_title == document.getElementById("assess_id")[i].text){
                         console.log("Assessment value: " + document.getElementById("assess_id")[i].value);
                         if(class_data[j].score == "MT"){
-                            mtTotal += class_data[j].count;
+                            mtTotal += parseInt(class_data[j].count,10);
                             console.log("MT scores?: " + class_data[j].score);
                         }
                         if(class_data[j].score == "NT"){
-                            ntTotal += class_data[j].count;
+                            ntTotal += parseInt(class_data[j].count,10);
                         }
                         if(class_data[j].score == "BT"){
-                            btTotal += class_data[j].count;
+                            btTotal += parseInt(class_data[j].count,10);
                         }
                     }  
                 }
