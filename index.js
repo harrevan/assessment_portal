@@ -88,6 +88,35 @@ app.get('/student_table_data', function(req,res){
     });
 });
 
+app.get('/class_data', function(req,res){
+    let time = req.query.time;
+    let subject = req.query.subject;
+    let assess_period = req.query.assess_period; 
+    var resRows;
+
+    // Select assessment data according to student, subject, and assessment period
+    const sql = "SELECT count(score), assessment_title, score " +
+                "FROM assessment_score " +
+                "INNER JOIN master_assessment ON master_assessment.assessment_id = assessment_score.assessment_id " +
+                "INNER JOIN students ON students.student_id = assessment_score.student_id " +
+                "WHERE subject = '"+ subject + "' AND assessment_period = " + assess_period + " AND class_time = '" + time + "' "
+                "GROUP BY assessment_title, score";
+    console.log(sql);
+    pool.query(sql, function(err, result) {
+        // If an error occurred...
+        if (err) {
+            console.log("Error in query: ")
+            console.log(err);
+        }
+        resRows = result.rows;
+        console.log("Back from DB with result:");
+        console.log(resRows);
+
+        // Return JSON result
+        res.json(resRows);
+    });
+});
+
 app.post('/enter_scores', function(req,res){
     let student = req.body.student;
     let assessment = req.body.assessment;

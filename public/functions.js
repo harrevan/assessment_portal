@@ -77,7 +77,7 @@ function prepareStudentData(id, name){
 
     //display student name in headers
     document.getElementById("student_heading").innerText = "Enter assessment scores for " + name;
-    document.getElementById("stud_header").innerText = name + " Data";
+    document.getElementById("stud_header").innerText = name + "'s Data";
 
     //display data table
     displayStudentData();
@@ -135,4 +135,63 @@ function displayStudentData(){
     };
     xhttp.open("GET", "/student_table_data?student=" + student_id + "&assess_period=" + assessment_period + "&subject=" + subject, true);
     xhttp.send();      
+}
+
+function displayClassData() {
+    var time = document.getElementById("class_time").value;
+    var assessment_period = document.getElementById("assessment_list").value;
+    var subject = document.getElementById("subject_list").value;
+
+    //AJAX GET
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+           var class_data = JSON.parse(this.responseText);
+           var table = document.getElementById("class_table");
+
+           // Clear existing table rows
+           while(table.rows.length > 1){
+            table.deleteRow(1);
+        }
+        var numAssessments = document.getElementById("assess_id");
+
+           //display class table
+           for(var i = 0; i < numAssessments; i++){
+                var row = table.insertRow(i+1);
+
+                // score totals
+                var mtTotal = 0;
+                var ntTotal = 0;
+                var btTotal = 0;
+
+                // td cells
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+
+                for(var j = 0; j < class_data.length; j++){
+                    if(class_data[j].assessment_title == document.getElementById("assess_id")[i].value){
+                        if(class_data[j].score == "MT"){
+                            mtTotal += class_data[j].count;
+                        }
+                        if(class_data[j].score == "NT"){
+                            ntTotal += class_data[j].count;
+                        }
+                        if(class_data[j].score == "BT"){
+                            btTotal += class_data[j].count;
+                        }
+                    }  
+                }
+                cell1.innerHTML = mtTotal;
+                cell2.innerHTML = ntTotal;
+                cell3.innerHTML = btTotal;
+           }
+        }
+    };
+    xhttp.open("GET", "/class_data?time=" + time + "&assess_period=" + assessment_period + "&subject=" + subject, true);
+    xhttp.send();  
+}
+
+function setTime(time){
+    document.getElementById("class_time").value = time;
 }
