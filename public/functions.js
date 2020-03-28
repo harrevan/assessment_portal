@@ -168,6 +168,7 @@ function displayClassData() {
                 var cell2 = row.insertCell(1);
                 var cell3 = row.insertCell(2);
                 var cell4 = row.insertCell(3);
+                cell1.innerHTML = class_data[j].assessment_title;
 
                 for(var j = 0; j < class_data.length; j++){
                     if(class_data[j].assessment_title == document.getElementById("assess_id")[i].value){
@@ -183,7 +184,6 @@ function displayClassData() {
                     }  
                 }
                 console.log("MT total = " + mtTotal);
-                cell1.innerHTML = class_data[j].assessment_title;
                 cell2.innerHTML = mtTotal;
                 cell3.innerHTML = ntTotal;
                 cell4.innerHTML = btTotal;
