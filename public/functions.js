@@ -152,9 +152,10 @@ function displayClassData() {
            // Clear existing table rows
            while(table.rows.length > 1){
             table.deleteRow(1);
-        }
-        var numAssessments = document.getElementById("assess_id");
+            }
 
+           var numAssessments = document.getElementById("assess_id");
+           console.log("assessment count " + numAssessments);
            //display class table
            for(var i = 0; i < numAssessments; i++){
                 var row = table.insertRow(i+1);
@@ -182,6 +183,7 @@ function displayClassData() {
                         }
                     }  
                 }
+                console.log("MT total = " + mtTotal);
                 cell1.innerHTML = mtTotal;
                 cell2.innerHTML = ntTotal;
                 cell3.innerHTML = btTotal;
