@@ -161,6 +161,8 @@ function displayClassData() {
            var ntTotal = 0;
            var btTotal = 0;
 
+           console.log(class_data.length);
+
            //display class table
            for(var i = 0; i < numAssessments; i++){
                 var row = table.insertRow(i+1);
