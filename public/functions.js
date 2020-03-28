@@ -156,19 +156,18 @@ function displayClassData() {
 
            var numAssessments = document.getElementById("assess_id").length;
            console.log("assessment count " + numAssessments);
+           // score totals
+           var mtTotal = 0;
+           var ntTotal = 0;
+           var btTotal = 0;
            //display class table
            for(var i = 0; i < numAssessments; i++){
                 var row = table.insertRow(i+1);
-
-                // score totals
-                var mtTotal = 0;
-                var ntTotal = 0;
-                var btTotal = 0;
-
                 // td cells
                 var cell1 = row.insertCell(0);
                 var cell2 = row.insertCell(1);
                 var cell3 = row.insertCell(2);
+                var cell4 = row.insertCell(3);
 
                 for(var j = 0; j < class_data.length; j++){
                     if(class_data[j].assessment_title == document.getElementById("assess_id")[i].value){
@@ -184,9 +183,10 @@ function displayClassData() {
                     }  
                 }
                 console.log("MT total = " + mtTotal);
-                cell1.innerHTML = mtTotal;
-                cell2.innerHTML = ntTotal;
-                cell3.innerHTML = btTotal;
+                cell1.innerHTML = class_data[j].assessment_title;
+                cell2.innerHTML = mtTotal;
+                cell3.innerHTML = ntTotal;
+                cell4.innerHTML = btTotal;
            }
         }
     };
