@@ -154,7 +154,7 @@ function displayClassData() {
             table.deleteRow(1);
             }
 
-           var numAssessments = document.getElementById("assess_id");
+           var numAssessments = document.getElementById("assess_id").length;
            console.log("assessment count " + numAssessments);
            //display class table
            for(var i = 0; i < numAssessments; i++){
