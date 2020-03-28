@@ -180,6 +180,7 @@ function displayClassData() {
                     console.log("Element title: " + document.getElementById("assess_id")[i].text);
                     if(class_data[j].assessment_title == document.getElementById("assess_id")[i].text){
                         console.log("Assessment value: " + document.getElementById("assess_id")[i].text);
+                        console.log("Score Value: " + class_data[j].score);
                         if(class_data[j].score == "MT"){
                             mtTotal += parseInt(class_data[j].count,10);
                         }
