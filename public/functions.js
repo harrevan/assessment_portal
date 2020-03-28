@@ -184,10 +184,10 @@ function displayClassData() {
                         if(class_data[j].score == "MT"){
                             mtTotal += parseInt(class_data[j].count,10);
                         }
-                        if(class_data[j].score == "NT"){
+                        else if(class_data[j].score == "NT"){
                             ntTotal += parseInt(class_data[j].count,10);
                         }
-                        if(class_data[j].score == "BT"){
+                        else
                             btTotal += parseInt(class_data[j].count,10);
                         }
                     }  
