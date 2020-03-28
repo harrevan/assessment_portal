@@ -155,11 +155,12 @@ function displayClassData() {
             }
 
            var numAssessments = document.getElementById("assess_id").length;
-           console.log("assessment count " + numAssessments);
+
            // score totals
            var mtTotal = 0;
            var ntTotal = 0;
            var btTotal = 0;
+
            //display class table
            for(var i = 0; i < numAssessments; i++){
                 var row = table.insertRow(i+1);
@@ -176,10 +177,9 @@ function displayClassData() {
                     console.log("Query title: " + class_data[j].assessment_title);
                     console.log("Element title: " + document.getElementById("assess_id")[i].text);
                     if(class_data[j].assessment_title == document.getElementById("assess_id")[i].text){
-                        console.log("Assessment value: " + document.getElementById("assess_id")[i].value);
+                        console.log("Assessment value: " + document.getElementById("assess_id")[i].text);
                         if(class_data[j].score == "MT"){
                             mtTotal += parseInt(class_data[j].count,10);
-                            console.log("MT scores?: " + class_data[j].score);
                         }
                         if(class_data[j].score == "NT"){
                             ntTotal += parseInt(class_data[j].count,10);
