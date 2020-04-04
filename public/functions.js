@@ -78,8 +78,6 @@ function prepareStudentData(id, name){
     //display student name in headers
     document.getElementById("student_heading").innerText = "Enter assessment scores for " + name;
     document.getElementById("stud_header").innerText = name + "'s Data";
-    var selectedAssessment = document.getElementById("assess_id");
-    document.getElementById("selected_assessment").innerHTML = "*Selected assessment: " + selectedAssessment.options[selectedAssessment.selectedIndex].text;
 
     //display data table
     displayStudentData();
@@ -211,4 +209,9 @@ function setTime(time){
 function revealDivs(){
     document.getElementById("class_data_div").style.visibility = "visible"; 
     document.getElementById("student_data_div").style.visibility = "visible"; 
+}
+
+function showSelectedAssessment(){
+    var selectedAssessment = document.getElementById("assess_id");
+    document.getElementById("selected_assessment").innerHTML = "*Selected assessment: " + selectedAssessment.options[selectedAssessment.selectedIndex].text;
 }
