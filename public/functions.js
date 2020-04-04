@@ -234,3 +234,6 @@ function hideStudentData(){
 function hideClassData(){
     document.getElementById("class_data_div").style.visibility = "hidden"; 
 }
+function hideStudentList(){
+    document.getElementById("student_list").style.visibility = "hidden"; 
+}
