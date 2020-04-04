@@ -214,5 +214,5 @@ function revealDivs(){
 
 function showSelectedAssessment(){
     var selectedAssessment = document.getElementById("assess_id");
-    document.getElementById("selected_assessment").innerHTML = "*Selected assessment: " + selectedAssessment.options[selectedAssessment.selectedIndex].text;
+    document.getElementById("selected_assessment").innerHTML = "*Selected assessment: \"" + "selectedAssessment.options[selectedAssessment.selectedIndex].text" + "\"";
 }
