@@ -80,7 +80,7 @@ function prepareStudentData(id, name){
 
     // Reveal student data
     revealStudentDivs();
-    
+
     //display student name in headers
     document.getElementById("student_heading").innerText = "Enter assessment scores for " + name;
     document.getElementById("stud_header").innerText = name + "'s Data";
@@ -225,4 +225,8 @@ function revealStudentDivs(){
 function showSelectedAssessment(){
     var selectedAssessment = document.getElementById("assess_id");
     document.getElementById("selected_assessment").innerHTML = "*Selected assessment: \"" + selectedAssessment.options[selectedAssessment.selectedIndex].text + "\"";
+}
+
+function hideStudentData(){
+    document.getElementById("student_data_div").style.visibility = "hidden"; 
 }
