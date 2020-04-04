@@ -8,7 +8,7 @@
             var studentName = JSON.parse(this.responseText);
             console.log(this.responseText);
             console.log(studentName[0].upper);
-
+            // Create list of buttons with student names
             createList(classTime, studentName);
         }
     };
@@ -19,8 +19,12 @@
 function createList(time, studentName){
     	// Clear any existing content first
     document.getElementById("student_list").innerHTML = "";
+
+    // display AM or PM students
   	var title = document.createElement("H1");
-  	title.innerHTML = time + " Students";
+    title.innerHTML = time + " Students";
+      
+    //Create button list
   	document.getElementById("student_list").appendChild(title);
   	for(var i  = 0; i < studentName.length; i++){
         var id = studentName[i].student_id;
@@ -51,7 +55,6 @@ function getAssessmentSelectOptions(unit, type){
         };
         xhttp.open("GET", "/assess_select_options?unit=" + unit + "&type=" + type, true);
         xhttp.send();  
-
     }
 }  
 
@@ -75,6 +78,9 @@ function prepareStudentData(id, name){
     var student = document.getElementById("student_name"); 
     student.value = id;
 
+    // Reveal student data
+    revealStudentDivs();
+    
     //display student name in headers
     document.getElementById("student_heading").innerText = "Enter assessment scores for " + name;
     document.getElementById("stud_header").innerText = name + "'s Data";
@@ -104,6 +110,7 @@ function enterStudentData(){
 }
 
 function displayStudentData(){
+    // set necessary variables
     var student_id = document.getElementById("student_name").value;
     var assessment_period = document.getElementById("assessment_list").value;
     var subject = document.getElementById("subject_list").value;
@@ -171,8 +178,7 @@ function displayClassData() {
                 var cell4 = row.insertCell(3);
                 cell1.innerHTML = document.getElementById("assess_id")[i].text;
 
-                console.log("I = " + i + " CELL1 = " + class_data[i].assessment_title + " ID = " + document.getElementById("assess_id")[i].value);
-
+                //total assessment scores
                 for(var j = 0; j < class_data.length; j++){
                     console.log("Query title: " + class_data[j].assessment_title);
                     console.log("Element title: " + document.getElementById("assess_id")[i].text);
@@ -191,10 +197,11 @@ function displayClassData() {
                     }  
                 }
                 console.log("MT total = " + mtTotal);
+
+                //Set insert totals into table
                 cell2.innerHTML = mtTotal;
                 cell3.innerHTML = ntTotal;
                 cell4.innerHTML = btTotal;
-
            }
         }
     };
@@ -208,8 +215,11 @@ function setTime(time){
 
 function revealDivs(){
     document.getElementById("class_data_div").style.visibility = "visible"; 
-    document.getElementById("student_data_div").style.visibility = "visible"; 
     showSelectedAssessment();
+}
+
+function revealStudentDivs(){
+    document.getElementById("student_data_div").style.visibility = "visible"; 
 }
 
 function showSelectedAssessment(){

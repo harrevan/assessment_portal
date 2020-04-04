@@ -6,8 +6,6 @@ const connectionString = process.env.DATABASE_URL || "postgres://tjbpuwysthhmlc:
 const { Pool } = require('pg');
 const pool = new Pool({ connectionString: connectionString });
 
-
-
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -43,7 +41,7 @@ app.get('/assess_select_options', function(req,res){
     let type = req.query.type;
     console.log("DB params: " + unit + type);
     var resRows;
-    // Select students according to class time
+    // Select assessment according to subject and assessment period
     const sql = "SELECT assessment_title, assessment_id FROM master_assessment WHERE assessment_period = '" + unit + "' AND subject = '" + type + "' ORDER BY assessment_id";
     pool.query(sql, function(err, result) {
         // If an error occurred...
@@ -70,7 +68,6 @@ app.get('/student_table_data', function(req,res){
     // Select assessment data according to student, subject, and assessment period
     const sql = "SELECT assessment_title, score, correct_answers FROM master_assessment " + 
                 "INNER JOIN assessment_score ON master_assessment.assessment_id = assessment_score.assessment_id " + 
-                //"WHERE student_id = " + student + " AND subject = " + "'" + subject + "'" + " AND assessment_period = " + assess_period;
                 "WHERE student_id = " + student + "AND assessment_period = " + assess_period + " AND subject = " + "'" + subject + "'";
     console.log(sql);
     pool.query(sql, function(err, result) {
@@ -125,8 +122,8 @@ app.post('/enter_scores', function(req,res){
 
     console.log("DB score params: " + student + " " + assessment + " " + score + " " + answers);
     var resRows;
-    // Select students according to class time
 
+    // Insert assessment score
     const sql = "INSERT INTO assessment_score (student_id, assessment_id, score, correct_answers) VALUES (" 
                 + student + ", " +  assessment + ", "  + "'" + score + "'"  + ", " + answers + ")" +
                 " ON CONFLICT (student_id, assessment_id) DO UPDATE SET score = excluded.score, correct_answers = excluded.correct_answers";
@@ -137,12 +134,6 @@ app.post('/enter_scores', function(req,res){
             console.log("Error in update: ")
             console.log(err);
         }
-        //resRows = result.rows;
-        // Log this to the console for debugging purposes.
-        //console.log("Back from DB with result:");
-        //console.log(resRows);
-
-        // Return JSON result
         res.send("Score entered successfully!");
     });
 });
