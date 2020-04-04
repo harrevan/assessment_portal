@@ -231,3 +231,6 @@ function showSelectedAssessment(){
 function hideStudentData(){
     document.getElementById("student_data_div").style.visibility = "hidden"; 
 }
+function hideClassData(){
+    document.getElementById("class_data_div").style.visibility = "hidden"; 
+}
