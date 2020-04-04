@@ -78,7 +78,7 @@ function prepareStudentData(id, name){
     //display student name in headers
     document.getElementById("student_heading").innerText = "Enter assessment scores for " + name;
     document.getElementById("stud_header").innerText = name + "'s Data";
-    document.getElementById("selected_assessment").innerHTML = "*Selected assessment: " + document.getElementById("assess_id").text;
+    document.getElementById("selected_assessment").innerHTML = "*Selected assessment: " + document.getElementById("assess_id").option.text;
 
     //display data table
     displayStudentData();
