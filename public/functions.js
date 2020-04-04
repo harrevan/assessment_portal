@@ -209,6 +209,7 @@ function setTime(time){
 function revealDivs(){
     document.getElementById("class_data_div").style.visibility = "visible"; 
     document.getElementById("student_data_div").style.visibility = "visible"; 
+    showSelectedAssessment();
 }
 
 function showSelectedAssessment(){
