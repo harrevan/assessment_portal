@@ -102,6 +102,7 @@ function enterStudentData(){
         if (this.readyState == 4 && this.status == 200) {
             var message = this.responseText;
             console.log(this.responseText);
+            displayStudentData();
         }
     };
     xhttp.open("POST", "/enter_scores", true);
