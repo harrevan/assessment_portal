@@ -25,6 +25,7 @@ function createList(time, studentName){
     title.innerHTML = time + " Students";
       
     //Create button list
+    document.getElementById("student_list").style.visibility = "visible"; 
   	document.getElementById("student_list").appendChild(title);
   	for(var i  = 0; i < studentName.length; i++){
         var id = studentName[i].student_id;
