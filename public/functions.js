@@ -155,9 +155,6 @@ function displayClassData() {
             }
 
            var numAssessments = document.getElementById("assess_id").length;
-
-
-
            console.log(class_data.length);
 
            //display class table
@@ -207,4 +204,9 @@ function displayClassData() {
 
 function setTime(time){
     document.getElementById("class_time").value = time;
+}
+
+function revealDivs(){
+    document.getElementById("class_data_div").style.visibility = "visible"; 
+    document.getElementById("student_data_div").style.visibility = "visible"; 
 }
